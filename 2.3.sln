@@ -1,31 +1,50 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30503.244
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2.3", "2.3\2.3.vcxproj", "{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Debug|x64.ActiveCfg = Debug|x64
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Debug|x64.Build.0 = Debug|x64
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Debug|x86.ActiveCfg = Debug|Win32
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Debug|x86.Build.0 = Debug|Win32
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Release|x64.ActiveCfg = Release|x64
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Release|x64.Build.0 = Release|x64
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Release|x86.ActiveCfg = Release|Win32
-		{8896BFEC-1DCB-47FF-B4AC-DFAF3C0ADD22}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {F61F9C85-2CD7-41FB-ADDF-F0A6EB35821F}
-	EndGlobalSection
-EndGlobal
+#include <stdio.h>
+#include <stdlib.h>
+
+void power(int number, int source, int target)
+{
+  int number2 = 0;
+  int number3 = 0;
+  const int r = 20;
+  int arr1[r];
+  int arr2[r];
+  int size;
+  for (int i = 0; number == 0; i++)
+  {
+    arr1[i] = number % 10;
+    number /= 10;
+  }
+
+  size = sizeof(arr1)/4;
+	
+  for (int i = size; i >= 0 ; i--)
+  {
+    number2 = number2 * source + arr1[i];
+  }
+
+  number3 = number2;
+
+  for (int i = 0; number2 == 0; i++)
+  {
+    arr2[i] = number2 % 10;
+    number2 /= 10;
+  }
+
+  for (int i = 0; i < size ; i++)
+  {
+    arr2[i] = number3 % target;
+    number3 /= target;
+  }
+
+  return ;
+}
+int main()
+{
+  int number, source, target;
+  scanf_s("%d", &number);
+  scanf_s("%d", &source);
+  scanf_s("%d", &target);
+  power(number, source, target);
+
+  return 0;
+}
