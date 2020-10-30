@@ -1,43 +1,9 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
+void power(int, int, int);
+char int_to_char(int);
 
-void power(int number, int source, int target)
-{
-  int number2 = 0;
-  int number3 = 0;
-  const int r = 20;
-  int arr1[r];
-  int arr2[r];
-  int size;
-  for (int i = 0; number == 0; i++)
-  {
-    arr1[i] = number % 10;
-    number /= 10;
-  }
 
-  size = sizeof(arr1)/4;
-	
-  for (int i = size; i >= 0 ; i--)
-  {
-    number2 = number2 * source + arr1[i];
-  }
-
-  number3 = number2;
-
-  for (int i = 0; number2 == 0; i++)
-  {
-    arr2[i] = number2 % 10;
-    number2 /= 10;
-  }
-
-  for (int i = 0; i < size ; i++)
-  {
-    arr2[i] = number3 % target;
-    number3 /= target;
-  }
-
-  return ;
-}
 int main()
 {
   int number, source, target;
@@ -45,6 +11,63 @@ int main()
   scanf_s("%d", &source);
   scanf_s("%d", &target);
   power(number, source, target);
-
+  if (target > 36 || source > 10)
+  {
+    printf("error");
+  }
+  else
+  {
+    power(number, source, target);
+  }
   return 0;
+}
+char int_to_char(int number)
+{
+  if (number >= 0 && number <= 9)
+  {
+    return number + '0';
+  }
+  else if (number >= 10 && number <= 36)
+  {
+    return number - 10 + 'A';
+  }
+  else
+  {
+    return ' ';
+  }
+}
+
+void power(int number, int source, int target)
+{
+  int number2 = 0;
+  char arr[20];
+
+  for (int i = 0; i < 20; i++)
+  {
+    arr[i] = 0;
+  }
+
+  while (number > 0)
+  {
+    static int power = 1;
+    number2 = number2 + (number % 10 * power);
+    power = power * source;
+    number = number / 10;
+  }
+
+  while (number2 > 0)
+  {
+    static int i = 0;
+    arr[i++] = int_to_char(number2 % target);
+    number2 = number2 / target;
+  }
+
+  int length = strlen(arr);
+  for (int i = 0; i < length / 2; i++)
+  {
+    arr[i] = arr[i] + arr[length - 1 - i];
+    arr[length - 1 - i] = arr[i] - arr[length - i - 1];
+    arr[i] = arr[i] - arr[length - 1 - i];
+  }
+  printf("%s", arr);
 }
