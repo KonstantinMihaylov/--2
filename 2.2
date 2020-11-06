@@ -1,9 +1,8 @@
 #include <stdio.h>
- 
-long int arr[100];
-long int Fibbonachi(long int number)
-{
 
+long int arr[100];
+long int get_fibbonachi_via_recursion(long int number)
+{
   if (arr[number] == 0)
   {
     if (number == 1 || number == 2)
@@ -12,7 +11,7 @@ long int Fibbonachi(long int number)
     } 
     else 
     {
-      arr[number] = Fibbonachi(number - 1) + Fibbonachi(number - 2);
+      arr[number] = get_fibbonachi_via_recursion(number - 1) + get_fibbonachi_via_recursion(number - 2);
     }
   }
 
