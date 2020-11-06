@@ -10,14 +10,13 @@ int main()
   scanf_s("%d", &number);
   scanf_s("%d", &source);
   scanf_s("%d", &target);
-  power(number, source, target);
-  if (target > 36 || source > 10)
+  if (target <= 36 || source <= 10)
   {
-    printf("error");
+    power(number, source, target);
   }
   else
   {
-    power(number, source, target);
+    printf("error");
   }
   return 0;
 }
@@ -53,6 +52,10 @@ void power(int number, int source, int target)
     number2 = number2 + (number % 10 * power);
     power = power * source;
     number = number / 10;
+    if (number <= 0)
+    {
+      power = 1;
+    }
   }
 
   while (number2 > 0)
@@ -60,6 +63,10 @@ void power(int number, int source, int target)
     static int i = 0;
     arr[i++] = int_to_char(number2 % target);
     number2 = number2 / target;
+    if (number2 <= 0)
+    {
+      i = 0;
+    }
   }
 
   int length = strlen(arr);
