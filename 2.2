@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-long int arr[50];
+long int array_of_elements_of_the_fibonacci_sequence[50];
 long int get_fibbonachi_via_recursion(long int number)
 {
-  if (arr[number] == 0)
+  if (array_of_elements_of_the_fibonacci_sequence[number] == 0)
   {
     if (number == 1 || number == 2)
     {
-      arr[number] = 1;
+      array_of_elements_of_the_fibonacci_sequence[number] = 1;
     } 
     else 
     {
-      arr[number] = get_fibbonachi_via_recursion(number - 1) + get_fibbonachi_via_recursion(number - 2);
+      array_of_elements_of_the_fibonacci_sequence[number] = get_fibbonachi_via_recursion(number - 1) + get_fibbonachi_via_recursion(number - 2);
     }
   }
 
-  return arr[number];
+  return array_of_elements_of_the_fibonacci_sequence[number];
 }
