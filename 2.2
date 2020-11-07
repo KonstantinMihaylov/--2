@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-long int array_of_elements_of_the_fibonacci_sequence[50];
 long int get_fibbonachi_via_recursion(long int number)
 {
+  static long int array_of_elements_of_the_fibonacci_sequence[50];
   if (array_of_elements_of_the_fibonacci_sequence[number] == 0)
   {
     if (number == 1 || number == 2)
