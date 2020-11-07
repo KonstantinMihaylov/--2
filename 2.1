@@ -2,8 +2,8 @@
 
 long get_fibbonachi_via_cycle(long int number)
 {
-  long int element1 = 1;
-  long int element2 = 1;
+  long int element_1 = 1;
+  long int element_2 = 1;
   long int next_number;
 
   if (number <= 2)
@@ -15,8 +15,8 @@ long get_fibbonachi_via_cycle(long int number)
     for(int i = 3; i <= number; i++) 
     {
       next_number = F1 + F2; 
-      F1 = F2; 
-      F2 = next_number; 
+      element_1 = element2; 
+      element_2 = next_number; 
     }
   }
 
